@@ -14,7 +14,7 @@ import logo2 from "../assets/logo2.png";
 const Update = () => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState("")
-  const [tags, setTags] = useState('')
+  const [tag, setTags] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const redirect = useNavigate();
 
@@ -23,11 +23,12 @@ const Update = () => {
   const url = `https://teewhytaskproject.onrender.com/api/tasks/${taskId}`;
   const getTask = async () =>{
     const res = await fetch(url)
-    const {task} = await res.json()
+    const {tasks} = await res.json()
+
     setIsLoading(false)
-    setTitle(task.title);
-    setDescription(task.description)
-    setTags(task.tags);
+    setTitle(tasks.title);
+    setDescription(tasks.description)
+    setTags(tasks.tag);
   }
 
   useEffect(() => {
@@ -42,7 +43,7 @@ const Update = () => {
        headers: {
         "Content-Type":"application/json"
        },
-       body: JSON.stringify({title, description, tags})
+       body: JSON.stringify({title, description, tag})
       })
       const data = await res.json()
       if (data.success){
@@ -137,7 +138,7 @@ const Update = () => {
                 <input
                   type="text"
                   className="title-input ps-2"
-                  value={tags}
+                  value={tag}
                   onChange={(e) => setTags(e.target.value)}
                 />
               </fieldset>
