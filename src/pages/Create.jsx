@@ -19,7 +19,7 @@ const Create = () => {
     console.log({ title, description, tag });
     try {
       const res = await fetch(
-        "http://localhost:7000/api/tasks",
+        "https://teewhytaskproject.onrender.com/api/tasks",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -36,7 +36,7 @@ const Create = () => {
       }
       setTitle("");
       setDescription("");
-      setTags("");
+      setTag("");
     } catch (error) {
       console.log(error);
     }

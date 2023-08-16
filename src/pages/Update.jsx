@@ -20,7 +20,7 @@ const Update = () => {
 
   const { taskId} = useParams()
 
-  const url = `http://localhost:7000/api/tasks/${taskId}`;
+  const url = `https://teewhytaskproject.onrender.com/api/tasks/${taskId}`;
   const getTask = async () =>{
     const res = await fetch(url)
     const {task} = await res.json()

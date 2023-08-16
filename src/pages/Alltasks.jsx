@@ -17,7 +17,7 @@ const [loading, setLoading] = useState(true);
 
 const getTasks = async () =>{
   try {
-    const res = await fetch('http://localhost:7000/api/tasks');
+    const res = await fetch('https://teewhytaskproject.onrender.com/api/tasks');
     const data = await res.json();
     setLoading(false);
     setTask(data.tasks)

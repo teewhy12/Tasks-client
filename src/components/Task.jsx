@@ -9,7 +9,7 @@ const Task = ({ title, description, tag, _id}) => {
     const handleDelete = async (id)=>{
 
         try {
-          const url = `http://localhost:7000/api/tasks/${id}`
+          const url = `https://teewhytaskproject.onrender.com/api/tasks/${id}`
           const res = await fetch(url, {
             method: 'DELETE',
           });
